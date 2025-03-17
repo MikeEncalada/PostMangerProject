@@ -37,7 +37,7 @@ Before getting started, ensure you have the following installed on your machine:
 ### Frontend (Angular)
 1. Navigate to the Angular Project
 2. Install dependencies:
-  ```bash
+   ```bash
    npm install
    ```
 3. Run the Angular application:
