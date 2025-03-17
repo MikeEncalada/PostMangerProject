@@ -1,4 +1,4 @@
-# Project Name
+# POST MANAGER PROJECT (TECHNICAL TEST)
 
 **Description**: This project is a technical test for a job, built with Spring Boot (Backend) and Angular (Frontend). It involves several technical requirements such as JPARepository, Hibernate, Liquibase for database management, JWT authentication, LocalStorage for session management, and more.
 
