@@ -1,0 +1,493 @@
+{
+	"info": {
+		"_postman_id": "1b5babe5-d687-4fa6-a2a2-3decf083498d",
+		"name": "ManagementPost",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38004004"
+	},
+	"item": [
+		{
+			"name": "UserRegistration-SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"userTest\",\r\n    \"email\": \"userTest@gmail.com\",\r\n    \"password\": \"encryptedPassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"defaultAdmin@gmail.com\",\r\n    \"password\": \"encryptedpassword\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RefreshToken",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwibmFtZSI6InVzZXJUZXN0Iiwicm9sZSI6IlVTRVIiLCJzdWIiOiJ1c2VyVGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NDIxODM1MjAsImV4cCI6MTc0Mjc4ODMyMH0.hmff67qjc05j0kK5ecF-OuExoOocYajFEDZbZfZpLq8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwibmFtZSI6InVzZXJUZXN0Iiwicm9sZSI6IlVTRVIiLCJzdWIiOiJ1c2VyVGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NDIxODM1ODYsImV4cCI6MTc0MjI2OTk4Nn0.nlECKEHBJydzmbiBaluXIjZO1Ifq6dZ3DiK3JyQmNsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\" : \"Titulo de mi post\",\r\n    \"content\": \"Contendio de mi post\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/post/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwibmFtZSI6InVzZXJUZXN0Iiwicm9sZSI6IlVTRVIiLCJzdWIiOiJ1c2VyVGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NDIxODM1ODYsImV4cCI6MTc0MjI2OTk4Nn0.nlECKEHBJydzmbiBaluXIjZO1Ifq6dZ3DiK3JyQmNsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/post/get/my-posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"get",
+						"my-posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update My Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwibmFtZSI6InVzZXJUZXN0Iiwicm9sZSI6IlVTRVIiLCJzdWIiOiJ1c2VyVGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NDIxODM1ODYsImV4cCI6MTc0MjI2OTk4Nn0.nlECKEHBJydzmbiBaluXIjZO1Ifq6dZ3DiK3JyQmNsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"id\": 15,\r\n        \"title\": \"Titulo de mi post Updated\",\r\n        \"content\": \"Contendio de mi post Updated\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/post/update-post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"update-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete My Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1IiwibmFtZSI6InVzZXJUZXN0Iiwicm9sZSI6IlVTRVIiLCJzdWIiOiJ1c2VyVGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3NDIxODM1ODYsImV4cCI6MTc0MjI2OTk4Nn0.nlECKEHBJydzmbiBaluXIjZO1Ifq6dZ3DiK3JyQmNsw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/post/delete-post?postId=15",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"delete-post"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "15"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Post (Public)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/post/get-all-posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"post",
+						"get-all-posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Get Posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/admin/get-posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"get-posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Update Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 6,\r\n  \"title\": \"Updated Post Title\",\r\n  \"content\": \"This is the updated content of the post.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/admin/update-post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"update-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Delete Post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/admin/delete-post?postId=12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"delete-post"
+					],
+					"query": [
+						{
+							"key": "postId",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Get Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/admin/get-users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"get-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Update User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"username\": \"user Updated\",\r\n  \"email\": \"newemail@example.com\",\r\n  \"role\": \"ADMIN\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/admin/update-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"update-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Admin - Delete User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIzIiwibmFtZSI6ImRlZmF1bHRBZG1pblVzZXIiLCJyb2xlIjoiQURNSU4iLCJzdWIiOiJkZWZhdWx0QWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzQyMTg0MTIyLCJleHAiOjE3NDIyNzA1MjJ9.03IpnO_sS_HWehrXAE8Llx_a8uCxW9C_hTD8Q-Ia5OE",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/admin/delete-user?userId=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"admin",
+						"delete-user"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
