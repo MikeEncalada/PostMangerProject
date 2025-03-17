@@ -1,0 +1,32 @@
+<div class="content">
+    <div>
+        <h1>MY POSTS</h1>
+        @for (post of mypost(); track post.id) {
+        <div class="mb-5">
+            <p-card header="{{post.title}}">
+                <p class="m-0">
+                    {{post.content}}
+                </p>
+                <div class="font-italic flex flex-column mt-2">
+                    <span>Publication Date: {{post.at_created}} </span>
+                </div>
+                <div class="flex justify-content-end mt-4 gap-3">
+                    <p-button label="Delete" [text]="true" severity="secondary" (onClick)="deletePost(post.id)" />
+                    <p-button label="Update" [outlined]="true" severity="secondary" (onClick)="openUpdateDialog(post)"/>
+                </div>
+            </p-card>
+        </div>
+        }
+    </div>
+
+    <div class="fixed-speeddial">
+        <p-toast />
+        <p-speeddial [model]="items" [radius]="120" type="quarter-circle" direction="up-left"
+            [style]="{ position: 'absolute', left: 0, top: 0 }" />
+    </div>
+
+    <app-create-post-dialog [(visible)]="isDialogVisible" (visibleChange)="onDialogVisibilityChange($event)"
+        (createPost)="createPost($event)"></app-create-post-dialog>
+
+
+</div>

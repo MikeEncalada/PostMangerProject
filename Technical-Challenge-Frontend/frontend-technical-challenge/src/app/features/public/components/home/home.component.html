@@ -1,0 +1,22 @@
+<div class="content">
+    <div>
+        <h1>POSTS</h1>
+        @for (post of posts(); track post.id) {
+        <div class="mb-5">
+            <p-card header="{{post.title}}" >
+                <p class="m-0">
+                    {{post.content}}
+                </p>
+                <div class="font-italic flex flex-column mt-2">
+                    <span>Author: {{post.user.username}} </span>
+                    <span>{{post.user.email}}</span>
+                </div>
+            </p-card>
+        </div>
+        }
+    </div>
+
+
+
+
+</div>

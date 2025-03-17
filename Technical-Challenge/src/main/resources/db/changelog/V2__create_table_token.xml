@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <!-- Cambioset para crear la tabla 'tokens' -->
+    <changeSet id="3" author="Mike Angelo">
+        <createTable tableName="tokens">
+            <!-- Columna 'id' (clave primaria) -->
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <!-- Columna 'token' (única) -->
+            <column name="token" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false"/>
+            </column>
+
+            <!-- Columna 'tokenType' (enumerado) -->
+            <column name="token_type" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Columna 'revoked' (booleano) -->
+            <column name="revoked" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Columna 'expired' (booleano) -->
+            <column name="expired" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+
+            <!-- Columna 'user_id' (clave foránea) -->
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <!-- Agregar la clave foránea a la tabla 'users' -->
+        <addForeignKeyConstraint
+                baseTableName="tokens"
+                baseColumnNames="user_id"
+                constraintName="fk_tokens_user"
+                referencedTableName="users"
+                referencedColumnNames="id"
+                onDelete="CASCADE"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+<div class="card">
+    <p-menubar [model]="filteredItems">
+        <ng-template #item let-item let-root="root">
+            <a pRipple class="flex items-center p-menubar-item-link">
+                <p-button label="{{ item.label }}" [link]="true" [routerLink]="[item.link]"/>
+                <p-badge *ngIf="item.badge" [ngClass]="{ 'ml-auto': !root, 'ml-2': root }" [value]="item.badge" />
+                <span *ngIf="item.shortcut" class="ml-auto border border-surface rounded bg-emphasis text-muted-color text-xs p-1">{{ item.shortcut }}</span>
+                <i *ngIf="item.items" [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']"></i>
+            </a>
+        </ng-template>
+        <ng-template #end>
+            <div class="flex items-center gap-2">
+                @if(!isLoggedIn){
+                    <p-button label="Log In" [link]="true" [routerLink]="['/auth/login']"/>
+                    <p-button label="Sign Up" [link]="true" [routerLink]="['/auth/sign-up']"/>
+                }
+                
+                @if(isLoggedIn){
+                    <p-button label="Log out" [link]="true" (onClick)="logout()"/>
+                }
+                
+            </div>
+        </ng-template>
+    </p-menubar>
+</div>
