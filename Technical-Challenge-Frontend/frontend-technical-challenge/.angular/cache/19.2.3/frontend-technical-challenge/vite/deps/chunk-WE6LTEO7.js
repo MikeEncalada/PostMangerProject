@@ -2,10 +2,10 @@ import {
   BaseStyle,
   PrimeNG,
   base
-} from "./chunk-26N5PG5F.js";
+} from "./chunk-GKXWEIDT.js";
 import {
   uuid
-} from "./chunk-AMLAONEI.js";
+} from "./chunk-ZZADULUX.js";
 import {
   config_default,
   service_default
@@ -262,4 +262,4 @@ var BaseComponent = class _BaseComponent {
 export {
   BaseComponent
 };
-//# sourceMappingURL=chunk-TZ52GKTC.js.map
+//# sourceMappingURL=chunk-WE6LTEO7.js.map

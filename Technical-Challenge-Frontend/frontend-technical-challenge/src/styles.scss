@@ -3,8 +3,25 @@
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
 
-.content{
-    height: 100%;
-    width: 100%;
-    padding: 20px 40px;
+
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.bg-primary-color{
+    background-color: #1F41AF;
+}
+
+.bg-secondary-color{
+    background-color: #209CB0;
+}
+
+.text-primary-color{
+    color: #1F41AF;
+}
+
+.text-secondary-color{
+    color: #209CB0;
 }

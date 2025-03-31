@@ -22,9 +22,25 @@ export class AuthService {
         return this.authDataSource.signUp(signUpData);
     }
 
-    get authenticated(): boolean {
+    get authenticated(): boolean {;
         return localStorage.getItem('accessToken') != null;
     }
+
+    isTokenExpired(): boolean {
+        const token = localStorage.getItem('accessToken');
+        if (!token) {
+          return true; 
+        }
+      
+        try {
+          const decodedToken: JwtPayload & { exp?: number } = jwtDecode(token); 
+          const currentTime = Date.now() / 1000; 
+          return decodedToken.exp ? (decodedToken.exp<currentTime) : true;
+        } catch (error) {
+          console.error('Error al decodificar el token:', error);
+          return true; 
+        }
+      }
 
     get userRole(): string {
         const token = localStorage.getItem('accessToken');

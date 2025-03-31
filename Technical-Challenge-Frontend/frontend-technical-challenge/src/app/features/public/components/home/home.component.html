@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content px-6">
     <div>
         <h1>POSTS</h1>
         @for (post of posts(); track post.id) {
@@ -8,15 +8,71 @@
                     {{post.content}}
                 </p>
                 <div class="font-italic flex flex-column mt-2">
-                    <span>Author: {{post.user.username}} </span>
-                    <span>{{post.user.email}}</span>
+                    <div>Author: {{post.user.username}} </div>
+                    <div>{{post.user.email}}</div>
                 </div>
             </p-card>
         </div>
         }
     </div>
 
+</div> -->
 
+<div class="content px-4 pt-4 flex ">
+    <div class="flex-none flex-column w-3 hidden lg:flex">
+        <div class="pt-3 pr-6 pl-4">
+            <div class=" p-4 border-top-2 font-bold">TOPICS</div>
+            <div class="flex flex-column gap-3 pl-4 text-secondary-color">
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/all.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">All</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sports.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Sports</div>
+                <div class="selected-item px-5 py-1 flex align-items-center" ><img src="/icons/news.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">News</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/enviroment.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Environment</div>
+            </div>
+        </div>
+        <div class="flex-grow-1"></div>
+        @if (isLoggedIn) {
+            <div class="mr-6 ml-4 mb-5 p-4 border-round flex align-items-center avatar-container">
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+                <div class="text-white font-bold">Mike Encalada</div>
+                <div class="flex-1"></div>
+                <div class="flex justify-center ">
+                    <p-menu #menu [model]="items" [popup]="true" />
+                    <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-h" [style]="{ 'background': 'transparent', 'border': 'none', 'box-shadow': 'none' }"  />
+                </div>
+            </div>
+        }
+        
+    </div>
+    <div class="flex-grow-1 flex flex-column px-4 overflow-auto">
+            <input type="text" placeholder="Search ..." class="p-2 border-round border-1"> 
+            @for (post of posts(); track post.id) {
+            <div class="flex flex-column px-4 mt-6 pb-6 border-bottom-2">
+                <h3 class="my-1">{{post.title}}</h3>
+                <p class="m-0">{{post.content}}</p>
+                <div class="flex justify-content-between align-items-end mt-4">
+                    <div class="flex align-items-center py-2 px-3 border-1 border-white-alpha-90 border-round-2xl avatar-container">
+                        <app-like-checkbox></app-like-checkbox>
+                        <div class="ml-2 text-sm text-white">Like</div>
+                    </div>
 
+                    <div class="flex flex-column font-italic align-items-end" >
+                        <div><b>Author: </b>{{post.user.username}}</div>
+                        <div>{{post.user.email}}</div>
+                    </div>
+                </div>
+            </div>
+            }
 
+    </div>
+    <div class="flex-none flex-column w-3 hidden lg:flex">
+        <div class="pt-3 pr-6 pl-4">
+            <div class=" p-4 border-top-2 font-bold">FILTER</div>
+            <div class="flex flex-column gap-3 pl-4 text-secondary-color">
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Publication Date</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Most Liked</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Most Viewed</div>
+            </div>
+        </div>
+
+    </div>
 </div>

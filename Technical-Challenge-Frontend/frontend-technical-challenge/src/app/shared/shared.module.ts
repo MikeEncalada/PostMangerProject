@@ -14,12 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyPostsRepository } from '../core/config/model/myposts.repository';
 import { PostDataSource } from '../core/config/model/post.datasource';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { LikeCheckboxComponent } from './like-checkbox/like-checkbox.component';
+import { LogoutButtonComponent } from './logout-button/logout-button.component';
 
 @NgModule({
   declarations: [
     TopNavBarComponent,
     CreatePostDialogComponent,
-    UpdatePostDialogComponent, 
+    UpdatePostDialogComponent,
+    LikeCheckboxComponent,
+    LogoutButtonComponent, 
   ],
   imports: [
     CommonModule,
@@ -35,7 +39,9 @@ import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
   exports: [
     TopNavBarComponent,
     CreatePostDialogComponent,
-    UpdatePostDialogComponent
+    UpdatePostDialogComponent,
+    LikeCheckboxComponent,
+    LogoutButtonComponent
   ],
   providers: [DynamicDialogRef, DynamicDialogConfig]
 })

@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { SignUp } from '../../../../core/config/interfaces/signup.interface';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../../core/config/services/auth.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-sign-up',
@@ -16,13 +17,20 @@ export class SignUpComponent implements OnInit{
   errorMessage?: string;
 
 
-  constructor(private router: Router, private auth: AuthService) {
+  constructor(private router: Router, private auth: AuthService, private messageService: MessageService) {
     this.signUpForm= new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(1)]),
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     });
     
+  }
+
+  ngOnInit(): void {
+  }
+
+  showError(messageError: string) {
+    this.messageService.add({ severity: 'error', summary: 'Error', detail: messageError });
   }
 
   onSubmit() {
@@ -35,15 +43,14 @@ export class SignUpComponent implements OnInit{
             if(response){
               this.router.navigateByUrl("/");
             }
-            this.errorMessage = "Register Failed";
+            this.showError("Register Failed");
         });
     } else {
-      console.log('Formulario inválido');
+      this.showError("Form Data Invalid");
     }
   }
 
-  ngOnInit(): void {
- }
+  
 
 
 }

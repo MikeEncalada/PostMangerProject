@@ -1,5 +1,38 @@
-.fixed-speeddial{
+.content {
+    height: 90vh;
+}
+
+.fixed-speeddial {
     position: fixed;
-    bottom: 100px; 
-    right: 100px; 
+    bottom: 100px;
+    right: 100px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.selected-item:hover {
+    border-left: 4px solid #209CB0;
+    color: #209CB0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.avatar-container {
+    background-color: #209CB0;
+}
+
+.svg-secondary-color {
+    filter: invert(67%) sepia(12%) saturate(1203%) hue-rotate(142deg) brightness(93%) contrast(97%);
+}
+
+body .p-menu {
+    outline: none;
+
+}
+
+:host ::ng-deep .p-speeddial-button{
+    background-color: #209CB0 !important;
+    border: #209CB0 !important;
 }

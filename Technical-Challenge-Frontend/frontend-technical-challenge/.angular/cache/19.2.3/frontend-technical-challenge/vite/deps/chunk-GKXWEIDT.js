@@ -2,7 +2,7 @@ import {
   FilterMatchMode,
   setAttribute,
   setAttributes
-} from "./chunk-AMLAONEI.js";
+} from "./chunk-ZZADULUX.js";
 import {
   config_default,
   dt,
@@ -701,4 +701,4 @@ export {
   PRIME_NG_CONFIG,
   providePrimeNG
 };
-//# sourceMappingURL=chunk-26N5PG5F.js.map
+//# sourceMappingURL=chunk-GKXWEIDT.js.map

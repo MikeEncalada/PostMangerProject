@@ -16,7 +16,8 @@ import { SpeedDial } from 'primeng/speeddial';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { TooltipModule } from 'primeng/tooltip';
-
+import { AvatarModule } from 'primeng/avatar';
+import { Menu } from 'primeng/menu';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,9 @@ import { TooltipModule } from 'primeng/tooltip';
     CardModule,
     SpeedDial,
     ToastModule,
-    TooltipModule
+    TooltipModule,
+    AvatarModule,
+    Menu
   ],
   providers: [PostRepository, PostDataSource, provideHttpClient(withInterceptorsFromDi()), MessageService]
 })

@@ -15,9 +15,17 @@ export class AuthGuard {
     canActivate(route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
         if (!this.auth.authenticated) {
+
             this.router.navigateByUrl("/");
             return false;
         }
+
+        if(this.auth.isTokenExpired()){
+            this.auth.clear();
+            window.location.reload();
+            return false;
+        }
+
         return true;
     }
 }

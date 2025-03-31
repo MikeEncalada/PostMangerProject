@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="flex justify-content-center mt-4 gap-3">
-        <p-button label="Cancel" [text]="true" severity="secondary" (onClick)="onClose()" />
-        <p-button type="submit" label="Save" [outlined]="true" severity="secondary" [disabled]="updatePostForm.invalid" />
+        <p-button label="Cancel" [text]="true" severity="secondary" (onClick)="onClose()" class="w-full" styleClass="w-full"/>
+        <p-button type="submit" label="Save" [outlined]="true" [disabled]="updatePostForm.invalid" class="w-full" styleClass="w-full"/>
     </div>
 </form>

@@ -1,0 +1,22 @@
+.content{
+    height: 90vh;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.selected-item:hover{
+    border-left: 4px solid #209CB0;
+    color: #209CB0;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.avatar-container{
+    background-color: #209CB0;
+}
+
+.svg-secondary-color{
+    filter: invert(67%) sepia(12%) saturate(1203%) hue-rotate(142deg) brightness(93%) contrast(97%);
+}

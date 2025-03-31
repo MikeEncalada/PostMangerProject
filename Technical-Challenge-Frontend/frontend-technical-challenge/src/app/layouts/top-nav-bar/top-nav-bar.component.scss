@@ -1,0 +1,32 @@
+:host ::ng-deep .p-button-link{
+    padding: 2px 10px 0px 0px;
+} 
+
+
+:host ::ng-deep .centered-menubar {
+    .p-menubar-root-list {
+        margin: 0 auto !important;  
+        justify-content: center !important;
+    }
+    
+    .p-menubar-start {
+        margin-right: auto !important;  
+    }
+    
+    .p-menubar-end {
+        margin-left: auto !important;  
+    }
+}
+
+.content{
+    height: 8vh;
+}
+
+.active-menu-item {
+    border-bottom: 4px solid #1F41AF;
+}
+
+.logo:hover{
+    cursor: pointer;
+}
+

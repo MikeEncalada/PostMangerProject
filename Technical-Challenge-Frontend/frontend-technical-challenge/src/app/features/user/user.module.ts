@@ -15,6 +15,8 @@ import { ToastModule } from 'primeng/toast';
 import { TooltipModule } from 'primeng/tooltip';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
+import { AvatarModule } from 'primeng/avatar';
+import { Menu } from 'primeng/menu';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { DialogService } from 'primeng/dynamicdialog';
     ButtonModule,
     SpeedDial,
     ToastModule,
-    TooltipModule
+    TooltipModule,
+    AvatarModule,
+    Menu
   ],
   providers: [MyPostsRepository, PostDataSource, provideHttpClient(withInterceptorsFromDi()), MessageService, DialogService]
 })

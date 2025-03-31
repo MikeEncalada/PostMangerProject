@@ -1,48 +1,65 @@
 <div class="content">
-    <div class="flex justify-content-center">
-        <div class="shadow-1 p-6">
-            <h2>Sign Up</h2>
-            <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-                
-                <div class="my-2">
-                    <div class="flex flex-column">
+
+    <div class="px-6 py-4 form-container">
+        <div class="h-full flex flex-column ">
+            <h1 class="text-white">Sign Up</h1>
+            <form class="text-white flex flex-column justify-content-around flex-grow-1" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+
+                <div>
+                    <div class="flex flex-column gap-2">
                         <label for="username">Username:</label>
                         <input pInputText id="username" formControlName="username" />
                     </div>
                     <div *ngIf="signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched">
-                        <small *ngIf="signUpForm.get('username')?.errors?.['required']" class="text-red-700">The username is required.</small>
-                        <small *ngIf="signUpForm.get('username')?.errors?.['minLength']" class="text-red-700">Invalidated username.</small>
+                        <small *ngIf="signUpForm.get('username')?.errors?.['required']" class="text-red-600">The
+                            username is required.</small>
+                        <small *ngIf="signUpForm.get('username')?.errors?.['minLength']"
+                            class="text-red-700">Invalidated username.</small>
                     </div>
                 </div>
 
-                <div class="my-2">
-                    <div class="flex flex-column">
+                <div >
+                    <div class="flex flex-column gap-2">
                         <label for="email">Email:</label>
                         <input pInputText id="email" formControlName="email" />
                     </div>
                     <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched">
-                        <small *ngIf="signUpForm.get('email')?.errors?.['required']" class="text-red-700">The email is required.</small>
-                        <small *ngIf="signUpForm.get('email')?.errors?.['email']" class="text-red-700">Invalidated email.</small>
+                        <small *ngIf="signUpForm.get('email')?.errors?.['required']" class="text-red-600">The email is
+                            required.</small>
+                        <small *ngIf="signUpForm.get('email')?.errors?.['email']" class="text-red-600">Invalidated
+                            email.</small>
                     </div>
                 </div>
 
-                <div class="my-2">
-                    <div class="flex flex-column">
+                <div>
+                    <div class="flex flex-column gap-2">
                         <label for="password">Password:</label>
                         <input pInputText id="password" type="password" formControlName="password" />
                     </div>
                     <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched">
-                        <small *ngIf="signUpForm.get('password')?.errors?.['required']" class="text-red-700">The password is required.</small>
-                        <small *ngIf="signUpForm.get('password')?.errors?.['minLength']" class="text-red-700">
+                        <small *ngIf="signUpForm.get('password')?.errors?.['required']" class="text-red-600">The
+                            password is required.</small>
+                        <small *ngIf="signUpForm.get('password')?.errors?.['minLength']" class="text-red-600">
                             The password must have at least 8 characters.
                         </small>
                     </div>
-                </div>
-                <div class="flex justify-content-center mt-4">
-                    <p-button type="submit" label="Sign Up" [disabled]="signUpForm.invalid"/>
+                    <div class="flex justify-content-center mt-2 text-sm">
+                        <span>Do you have account? <a [routerLink]="['/auth/login']">Log in</a></span>
+                    </div>
                 </div>
                 
+                <p-button type="submit" label="Sign Up" [disabled]="signUpForm.invalid" />
+ 
+
             </form>
         </div>
     </div>
+
+    <div class="logo text-white text-2xl" [routerLink]="['/']">
+        POST MANAGER
+    </div>
+
+
 </div>
+
+<p-toast />

@@ -1,4 +1,12 @@
 import {
+  Button
+} from "./chunk-WZMUMBBN.js";
+import {
+  TimesIcon,
+  WindowMaximizeIcon,
+  WindowMinimizeIcon
+} from "./chunk-HU4EFC6J.js";
+import {
   animate,
   animation,
   style,
@@ -10,22 +18,14 @@ import {
   zindexutils
 } from "./chunk-6222G4ZR.js";
 import {
-  Button
-} from "./chunk-LUYWD7JD.js";
-import {
-  TimesIcon,
-  WindowMaximizeIcon,
-  WindowMinimizeIcon
-} from "./chunk-KTQJFTIJ.js";
-import {
   DomHandler
 } from "./chunk-5G7WYC4N.js";
 import {
   BaseComponent
-} from "./chunk-TZ52GKTC.js";
+} from "./chunk-WE6LTEO7.js";
 import {
   BaseStyle
-} from "./chunk-26N5PG5F.js";
+} from "./chunk-GKXWEIDT.js";
 import {
   PrimeTemplate,
   SharedModule,
@@ -45,7 +45,7 @@ import {
   setAttribute,
   unblockBodyScroll,
   uuid
-} from "./chunk-AMLAONEI.js";
+} from "./chunk-ZZADULUX.js";
 import {
   CommonModule,
   DOCUMENT,
@@ -2260,4 +2260,4 @@ export {
   Dialog,
   DialogModule
 };
-//# sourceMappingURL=chunk-WIIIJ5G7.js.map
+//# sourceMappingURL=chunk-YGKLGKSW.js.map

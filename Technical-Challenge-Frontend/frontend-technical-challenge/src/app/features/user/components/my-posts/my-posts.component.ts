@@ -13,11 +13,17 @@ import { UpdatePostDialogComponent } from '../../../../shared/update-post-dialog
   templateUrl: './my-posts.component.html',
   styleUrl: './my-posts.component.scss'
 })
-export class MyPostsComponent implements OnInit{
+export class MyPostsComponent implements OnInit {
 
   mypost: Signal<MyPost[]>;
 
   items: MenuItem[];
+
+  itemsAvatar: MenuItem[] | undefined;
+
+
+
+  isLoggedIn: boolean;
 
   constructor(private myPostsRepository: MyPostsRepository,
     private auth: AuthService,
@@ -31,7 +37,7 @@ export class MyPostsComponent implements OnInit{
 
     this.items = [
       {
-        icon: 'pi pi-pencil',
+        icon: 'pi pi-plus',
         tooltipOptions: {
           tooltipLabel: 'New Post',
           tooltipPosition: "top"
@@ -51,9 +57,33 @@ export class MyPostsComponent implements OnInit{
         }
       },
     ];
+
+    this.isLoggedIn = this.auth.authenticated;
   }
   ngOnInit(): void {
     this.myPostsRepository.resetService()
+
+    this.itemsAvatar = [
+      {
+        label: 'User',
+        items: [
+          {
+
+            label: 'My Posts',
+            command: () => this.router.navigate(['/user/my-posts']),
+          },
+          {
+            label: 'Log out',
+            command: () => {
+              this.auth.clear();
+              this.router.navigateByUrl("/auth/login");
+            }
+
+          }
+        ]
+      }
+    ];
+
   }
 
   deletePost(idPost: number) {
@@ -81,18 +111,46 @@ export class MyPostsComponent implements OnInit{
 
   openUpdateDialog(post: UpdatePost): void {
     const ref = this.dialogService.open(UpdatePostDialogComponent, {
-      header: 'Update Post 1',
+      header: 'Update Post',
       width: '500px',
-      data: post 
+      data: post
     });
 
     ref.onClose.subscribe((updatedPost: UpdatePost) => {
       if (updatedPost) {
         this.myPostsRepository.updateMyPost(updatedPost);
-        
+
       }
     });
   }
+
+
+  getMenuItems(post: UpdatePost): MenuItem[] {
+    return [
+      {
+        label: 'Options',
+        items: [
+          {
+            icon: 'pi pi-pencil',
+            label: 'Update',
+            command: () => this.openUpdateDialog(post),
+
+
+          },
+          {
+            icon: 'pi pi-trash',
+            label: 'Delete',
+            command: () => this.deletePost(post.id),
+
+          }
+        ]
+      }];
+  }
+
+  postTrackBy(index: number, post: UpdatePost) {
+    return post.id;
+  }
+
 
 
 }

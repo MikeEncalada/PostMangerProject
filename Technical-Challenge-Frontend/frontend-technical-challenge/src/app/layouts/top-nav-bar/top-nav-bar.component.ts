@@ -25,27 +25,31 @@ export class TopNavBarComponent implements OnInit{
       this.items = [
           { 
             label: 'Home',
-            icon: 'pi pi-home',
+            icon: 'home',
             link: '',
             allowedRoles: ['ADMIN', 'USER', 'NONE'],
+            exact: true
           },
           {
             label: 'My Posts',
-            icon: 'pi pi-home',
+            icon: 'myposts',
             link: '/user/my-posts',
             allowedRoles: ['ADMIN', 'USER'],
+            exact: false
           },
           { 
             label: 'Posts',
-            icon: 'pi pi-search',
+            icon: 'allposts',
             link: '/admin/posts',
             allowedRoles: ['ADMIN'],
+            exact: false
           },
           {
             label: 'Users',
-            icon: 'pi pi-search',
+            icon: 'users',
             link: '/admin/users',
             allowedRoles: ['ADMIN'],
+            exact: false
           },
           
       ];

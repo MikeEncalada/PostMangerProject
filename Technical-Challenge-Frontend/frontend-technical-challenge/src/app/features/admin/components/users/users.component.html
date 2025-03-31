@@ -1,1 +1,21 @@
-<p>users works!</p>
+<div class="content px-4 pt-4 flex">
+    <div class="flex flex-wrap gap-5 justify-content-center align-items-center">
+        @for (user of allUsers(); track user.id) {
+
+        <p-card [style]="{ width: '25rem', overflow: 'hidden' }">
+            <ng-template #title> {{user.username}} </ng-template>
+            <ng-template #subtitle> {{user.role}} </ng-template>
+            <p>ID: {{user.id}}</p>
+            <p>{{user.email}}</p>
+            <ng-template #footer>
+                <div class="flex gap-4 mt-1">
+                    <p-button label="Delete" severity="secondary" class="w-full" [outlined]="true"
+                        styleClass="w-full" />
+                    <p-button label="Update" class="w-full" styleClass="w-full" [style]="{'background': '#209CB0', 'border-color': '#209CB0'}" />
+                </div>
+            </ng-template>
+        </p-card>
+        }
+
+    </div>
+</div>

@@ -1,1 +1,53 @@
-<p>posts works!</p>
+<div class="content px-4 pt-4 flex">
+
+    <div class="flex-none flex-column w-3 hidden lg:flex">
+        <div class="pt-3 pr-6 pl-4">
+            <div class=" p-4 border-top-2 font-bold">FILTER</div>
+            <div class="flex flex-column gap-3 pl-4 text-secondary-color">
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Publication Date</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Most Liked</div>
+                <div class="selected-item px-5 py-1 flex align-items-center"><img src="/icons/sort.svg" class="svg-secondary-color mr-2" alt="" width="25" height="25">Most Viewed</div>
+            </div>
+        </div>
+        <div class="flex-grow-1"></div>
+        @if (isLoggedIn) {
+            <div class="mr-6 ml-4 mb-5 p-4 border-round flex align-items-center avatar-container">
+                <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/asiyajavayant.png" class="mr-2" size="large" shape="circle" />
+                <div class="text-white font-bold">Mike Encalada</div>
+                <div class="flex-1"></div>
+                <div class="flex justify-center ">
+                    <p-menu #menu [model]="itemsAvatar" [popup]="true" />
+                    <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-h" [style]="{ 'background': 'transparent', 'border': 'none', 'box-shadow': 'none' }"  />
+                </div>
+            </div>
+        }
+        
+    </div>
+    <div class="flex-grow-1 flex flex-column px-4 overflow-auto">
+            <input type="text" placeholder="Search ..." class="p-2 border-round border-1"> 
+            @for (post of allPosts(); track post.id; let i = $index) {
+            <div class="flex flex-row justify-content-between align-items-center px-4 py-6 border-1 mt-4 border-round-2xl">
+                
+
+                <div class="flex flex-column">
+                    <h3 class="my-1">{{post.title}}</h3>
+                    <p class="m-0">{{post.content}}</p>
+                    <p class="mt-4 mb-0"><b>User: </b> {{post.user.username}}</p>
+                    <p class="m-0"><b>Email: </b> {{post.user.email}}</p>
+                </div>
+
+                <div >
+                    <p-menu #menu [model]="getMenuItems(post)" [appendTo]="'body'" [popup]="true"/>
+                    <p-button (click)="menu.toggle($event)" icon="pi pi-ellipsis-h" [style]="{ 'background': 'transparent', 'border': 'none', 'box-shadow': 'none', 'color' : 'black' }"  />
+                </div>
+
+            </div>
+            }
+
+    </div>
+    <div class="flex-none flex-column w-2 hidden lg:flex">
+        
+
+    </div>
+
+</div>
